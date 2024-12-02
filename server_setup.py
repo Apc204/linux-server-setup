@@ -5,6 +5,25 @@ import sys
 import getpass
 from datetime import datetime
 
+def print_welcome_message():
+    """Display a welcome message with script information"""
+    print("""
+╔════════════════════════════════════════════╗
+║     Linux Server Setup & Security Script    ║
+║            Version 1.0 (2024)              ║
+╚════════════════════════════════════════════╝
+
+This script will help you set up and secure your Linux server by:
+• Updating system packages
+• Installing essential tools
+• Configuring firewall rules
+• Setting up intrusion prevention
+• Creating configuration backups
+• Applying security hardening
+
+Please make sure you have root/sudo access before proceeding.
+""")
+
 def run_command(command):
     """Execute a shell command and return the output"""
     try:
@@ -17,6 +36,9 @@ def run_command(command):
         return None
 
 def setup_server():
+    # Display welcome message
+    print_welcome_message()
+    
     # Check if script is run as root
     if os.geteuid() != 0:
         print("This script must be run as root (sudo)!")
